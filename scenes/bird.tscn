@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg3314ftgiyqt"]
+
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_2rngs"]
+[ext_resource type="Texture2D" uid="uid://xx1586rr5vk6" path="res://assets/tile_0136.png" id="1_u0rs4"]
+[ext_resource type="Texture2D" uid="uid://dirbnfmyjmln8" path="res://assets/tile_0135.png" id="2_kikjk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctust"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u0rs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kikjk")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ccxv"]
+radius = 6.0
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_2rngs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_ctust")
+animation = &"fly"
+autoplay = "fly"
+frame = 1
+frame_progress = 0.555557
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_1ccxv")
